@@ -1,0 +1,15 @@
+---
+version: '3.8'
+services:
+  web-proxy:
+    image: shubhamhirau18/web-proxy:latest
+    container_name: web-proxy
+    command: --hostname 0.0.0.0 --plugins proxy.http.proxy.AuthPlugin --plugins proxy.http.proxy.HttpProxyPlugin --num-workers 4 --basic-auth='ShubhamHirau:Dw7kwA4i6NX0iavqdYrZ' 
+    ports:
+      - "8989:8899"
+  ssh-proxy:
+    image: shubhamhirau18/ssh-proxy:latest
+    container_name: ssh-proxy
+    ports:
+      - "2323:22"
+...
